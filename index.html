@@ -20,7 +20,7 @@
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 
   <style>
-    :root {
+ :root {
 	/* Colors */
 	--chat--color--primary: #e74266;
 	--chat--color--primary-shade-50: #db4061;
@@ -38,7 +38,7 @@
 
 	/* Base Layout */
 	--chat--spacing: 1rem;
-	--chat--border-radius: 1rem;
+	--chat--border-radius: 0.25rem;
 	--chat--transition-duration: 0.15s;
 	--chat--font-family:
 		-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
@@ -57,15 +57,15 @@
 	/* Header Styles */
 	--chat--header-height: auto;
 	--chat--header--padding: var(--chat--spacing);
-	--chat--header--background: #d48596;
+	--chat--header--background: var(--chat--color-dark);
 	--chat--header--color: var(--chat--color-light);
 	--chat--header--border-top: none;
 	--chat--header--border-bottom: none;
 	--chat--header--border-left: none;
 	--chat--header--border-right: none;
-	--chat--heading--font-size: 2rem;
-	--chat--subtitle--font-size: 1.5rem;
-	--chat--subtitle--line-height: 0.0;
+	--chat--heading--font-size: 2em;
+	--chat--subtitle--font-size: inherit;
+	--chat--subtitle--line-height: 1.8;
 
 	/* Message Styles */
 	--chat--message--font-size: 1rem;
@@ -146,6 +146,30 @@
 	--chat--body--background: var(--chat--color-light);
 	--chat--footer--background: var(--chat--color-light);
 	--chat--footer--color: var(--chat--color-dark);
+}
+
+/* Pulse the chat toggle button every 9 seconds */
+.chat-window-toggle {
+	animation: chat-toggle-pulse 9s ease-in-out infinite;
+}
+
+@keyframes chat-toggle-pulse {
+	0%, 90%, 100% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0 var(--chat--color--primary);
+	}
+	93% {
+		transform: scale(1.15);
+		box-shadow: 0 0 0 12px transparent;
+	}
+	96% {
+		transform: scale(1);
+		box-shadow: 0 0 0 20px transparent;
+	}
+}
+
+.chat-window-toggle:hover {
+	animation-play-state: paused;
 }
   </style>
 </head>
