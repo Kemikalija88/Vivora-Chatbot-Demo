@@ -20,7 +20,9 @@
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 
   <style>
- :root {
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+ 
+:root {
 	/* ---------- Brand Colors ---------- */
 	--chat--color--primary: #e74266;            /* kept for toggle button */
 	--chat--color--primary-shade-50: #db4061;
@@ -55,12 +57,13 @@
 	--chat--window--right: var(--chat--spacing);
 	--chat--window--z-index: 9999;
 	--chat--window--border: none;               /* outer border removed */
+	--chat--window--shadow: 0 10px 40px rgba(32, 63, 58, 0.15), 0 2px 8px rgba(32, 63, 58, 0.08);
 	--chat--window--border-radius: 0.75rem;     /* slightly rounder than inner radius */
 	--chat--window--margin-bottom: var(--chat--spacing);
  
 	/* ---------- Header ---------- */
 	--chat--header-height: auto;
-	--chat--header--padding: calc(var(--chat--spacing) * 1.25) var(--chat--spacing);
+	--chat--header--padding: calc(var(--chat--spacing) * 1.95) var(--chat--spacing);
 	--chat--header--background: #203f3a;        /* deep forest */
 	--chat--header--color: #edeae3;             /* cream */
 	--chat--header--border-top: none;
@@ -68,7 +71,7 @@
 	--chat--header--border-left: none;
 	--chat--header--border-right: none;
 	--chat--heading--font-size: 1.5rem;
-	--chat--subtitle--font-size: 0.875rem;
+	--chat--subtitle--font-size: 1.3rem;
 	--chat--subtitle--line-height: 1.6;
  
 	/* ---------- Messages ---------- */
@@ -152,6 +155,11 @@
 	--chat--footer--color: #203f3a;
 }
 
+/* Pulse the chat toggle button every 10 seconds */
+.chat-window-toggle {
+	animation: chat-toggle-pulse 10s ease-in-out infinite;
+}
+
 @keyframes chat-toggle-pulse {
 	0%, 90%, 100% {
 		transform: scale(1);
@@ -169,7 +177,30 @@
 
 .chat-window-toggle:hover {
 	animation-play-state: paused;
+
 }
+
+.chat-header p {
+	margin: 0;
+	font-size: 1.15rem;
+	line-height: 1.3;
+	color: var(--chat--header--color);
+	font-weight: inherit;
+}
+
+.chat-header h1 {
+	margin: 0;
+	line-height: 1.3;
+}
+
+.chat-window-toggle:hover {
+	animation-play-state: paused;
+}
+
+.chat-window {
+	box-shadow: 0 10px 40px rgba(32, 63, 58, 0.15), 0 2px 8px rgba(32, 63, 58, 0.08);
+}
+
   </style>
 </head>
 
